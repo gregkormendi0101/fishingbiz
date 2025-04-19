@@ -15,7 +15,7 @@ export default function Home() {
       {/* Navigation Bar */}
       <header className="fixed top-0 left-0 w-full bg-white bg-opacity-70 backdrop-blur-md text-black shadow-md z-10">
           <nav className="container mx-auto flex justify-between items-center py-2 px-4">
-          <div className="flex items-center space-x-2"><img src="/logo.png" alt="Two Fins Logo" className="h-14 w-auto" /><span className="text-xl font-bold">TWO FINS CHARTERS</span></div>
+          <div className="flex items-center space-x-2"><img src="/logo.png" alt="Two Fins Logo" className="h-10 w-auto" /></div>
           <ul className="flex space-x-4">
             <li>
               <Link href="#home" scroll={false} className="hover:text-gray-300">
@@ -50,7 +50,8 @@ export default function Home() {
         {/* Dark overlay */}
         <div className="bg-black bg-opacity-50 absolute top-0 left-0 w-full h-full"></div>
           <div className="relative z-0 text-center text-white py-2 px-4 flex flex-col items-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <img src="/logoBig.png" alt="Two Fins Charters Large Logo" className="h-64 mb-6" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Experience the Best Fishing Adventures
           </h1>
           <p className="text-xl mb-6">
