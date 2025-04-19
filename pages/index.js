@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Fishing Charter</title>
+        <title>Two Fins Charters</title>
         <meta 
           name="description" 
           content="Fishing charter business offering inshore and offshore trips." 
@@ -13,9 +13,9 @@ export default function Home() {
       </Head>
 
       {/* Navigation Bar */}
-      <header className="fixed top-0 left-0 w-full bg-blue-900 text-white z-10">
-        <nav className="container mx-auto flex justify-between items-center p-4">
-          <div className="text-xl font-bold">Fishing Charter</div>
+      <header className="fixed top-0 left-0 w-full bg-white bg-opacity-70 backdrop-blur-md text-black shadow-md z-10">
+          <nav className="container mx-auto flex justify-between items-center py-2 px-4">
+          <div className="flex items-center space-x-2"><img src="/logo.png" alt="Two Fins Logo" className="h-14 w-auto" /><span className="text-xl font-bold">TWO FINS CHARTERS</span></div>
           <ul className="flex space-x-4">
             <li>
               <Link href="#home" scroll={false} className="hover:text-gray-300">
@@ -45,17 +45,11 @@ export default function Home() {
       <section 
         id="home" 
         className="h-screen flex items-center justify-center bg-cover bg-center relative scroll-mt-16" 
-        style={{ backgroundImage: 'url(https://source.unsplash.com/1600x900/?fishing)' }}
+        style={{ backgroundImage: 'url(/hero-image.png)' }}
       >
         {/* Dark overlay */}
         <div className="bg-black bg-opacity-50 absolute top-0 left-0 w-full h-full"></div>
-        <div className="relative z-10 text-center text-white p-4 flex flex-col items-center">
-          {/* Logo (placeholder image) */}
-          <img 
-            src="https://via.placeholder.com/150x50?text=Logo" 
-            alt="Fishing Charter Logo" 
-            className="h-auto mb-4" 
-          />
+          <div className="relative z-0 text-center text-white py-2 px-4 flex flex-col items-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Experience the Best Fishing Adventures
           </h1>
@@ -205,7 +199,7 @@ export default function Home() {
           <h3 className="text-xl font-bold text-center mb-4">Find Us</h3>
           <div className="w-full h-64">
             <iframe
-              src="https://maps.google.com/maps?q=Fort%20Lauderdale&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Key%20Largo&t=&z=13&ie=UTF8&iwloc=&output=embed"
               className="w-full h-full border-0"
               allowFullScreen
               loading="lazy"
@@ -213,7 +207,7 @@ export default function Home() {
             ></iframe>
           </div>
           <p className="text-center text-gray-600 mt-4">
-            &copy; 2025 Fishing Charter. All rights reserved.
+            &copy; 2025 Two Fins Charters. All rights reserved.
           </p>
         </div>
       </footer>
