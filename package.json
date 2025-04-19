@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.2",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

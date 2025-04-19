@@ -702,6 +702,16 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));
 
 /***/ }),
 
+/***/ "(pages-dir-node)/./node_modules/next/font/google/target.css?{\"path\":\"pages/index.js\",\"import\":\"Montserrat\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"500\"}],\"variableName\":\"montserrat\"}":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"pages/index.js","import":"Montserrat","arguments":[{"subsets":["latin"],"weight":"500"}],"variableName":"montserrat"} ***!
+  \*********************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'Montserrat', 'Montserrat Fallback'\",\"fontWeight\":500,\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_1786cf\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHBhZ2VzLWRpci1ub2RlKS8uL25vZGVfbW9kdWxlcy9uZXh0L2ZvbnQvZ29vZ2xlL3RhcmdldC5jc3M/e1wicGF0aFwiOlwicGFnZXMvaW5kZXguanNcIixcImltcG9ydFwiOlwiTW9udHNlcnJhdFwiLFwiYXJndW1lbnRzXCI6W3tcInN1YnNldHNcIjpbXCJsYXRpblwiXSxcIndlaWdodFwiOlwiNTAwXCJ9XSxcInZhcmlhYmxlTmFtZVwiOlwibW9udHNlcnJhdFwifSIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0EsV0FBVyx5RkFBeUY7QUFDcEc7QUFDQSIsInNvdXJjZXMiOlsiL1VzZXJzL2dyZWdrb3JtZW5kaS9Qcm9qZWN0cy90d29GaW5zL25leHRqcy1jaGFydGVyLXNpdGUvbm9kZV9tb2R1bGVzL25leHQvZm9udC9nb29nbGUvdGFyZ2V0LmNzcz97XCJwYXRoXCI6XCJwYWdlcy9pbmRleC5qc1wiLFwiaW1wb3J0XCI6XCJNb250c2VycmF0XCIsXCJhcmd1bWVudHNcIjpbe1wic3Vic2V0c1wiOltcImxhdGluXCJdLFwid2VpZ2h0XCI6XCI1MDBcIn1dLFwidmFyaWFibGVOYW1lXCI6XCJtb250c2VycmF0XCJ9Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIEV4cG9ydHNcbm1vZHVsZS5leHBvcnRzID0ge1xuXHRcInN0eWxlXCI6IHtcImZvbnRGYW1pbHlcIjpcIidNb250c2VycmF0JywgJ01vbnRzZXJyYXQgRmFsbGJhY2snXCIsXCJmb250V2VpZ2h0XCI6NTAwLFwiZm9udFN0eWxlXCI6XCJub3JtYWxcIn0sXG5cdFwiY2xhc3NOYW1lXCI6IFwiX19jbGFzc05hbWVfMTc4NmNmXCJcbn07XG4iXSwibmFtZXMiOltdLCJpZ25vcmVMaXN0IjpbMF0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(pages-dir-node)/./node_modules/next/font/google/target.css?{\"path\":\"pages/index.js\",\"import\":\"Montserrat\",\"arguments\":[{\"subsets\":[\"latin\"],\"weight\":\"500\"}],\"variableName\":\"montserrat\"}\n");
+
+/***/ }),
+
 /***/ "(pages-dir-node)/./node_modules/next/head.js":
 /*!***********************************!*\
   !*** ./node_modules/next/head.js ***!

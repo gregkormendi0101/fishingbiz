@@ -1,7 +1,25 @@
 import Head from 'next/head';
+import { Inter, Roboto, Montserrat } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], weight: '500' });
+const roboto = Roboto({ subsets: ['latin'], weight: '500' });
+const montserrat = Montserrat({ subsets: ['latin'], weight: '500' });
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Transition } from '@headlessui/react';
 
 export default function Home() {
+  const [showLogo, setShowLogo] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const heroHeight = window.innerHeight;
+    setShowLogo(window.scrollY > heroHeight - 650);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
   return (
     <div>
       <Head>
@@ -13,10 +31,22 @@ export default function Home() {
       </Head>
 
       {/* Navigation Bar */}
-      <header className="fixed top-0 left-0 w-full bg-white bg-opacity-70 backdrop-blur-md text-black shadow-md z-10">
-          <nav className="container mx-auto flex justify-between items-center py-2 px-4">
-          <div className="flex items-center space-x-2"><img src="/logo.png" alt="Two Fins Logo" className="h-10 w-auto" /></div>
-          <ul className="flex space-x-4">
+      <header className="fixed top-0 left-0 w-full bg-white bg-opacity-70 backdrop-blur-md text-black shadow-md z-10 h-16">
+          <nav className="container mx-auto flex justify-between items-center h-full px-4">
+          <div className="flex items-center space-x-2">
+            <Transition
+              show={showLogo}
+              enter="transition-opacity duration-500"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-500"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <img src="/logo.png" alt="Two Fins Logo" className="h-10 w-auto" />
+            </Transition>
+          </div>
+          <ul className={`flex space-x-4 ${montserrat.className}`}>
             <li>
               <Link href="#home" scroll={false} className="hover:text-gray-300">
                 Home
