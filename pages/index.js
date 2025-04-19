@@ -117,7 +117,7 @@ useEffect(() => {
           <div className="flex flex-col md:flex-row md:space-x-6">
             <div className="bg-white rounded shadow p-6 mb-6 md:mb-0 flex-1">
               <img 
-                src="https://source.unsplash.com/400x300/?fishing-boat" 
+                src="/inshoreoffshore.png" 
                 alt="Inshore and Offshore" 
                 className="w-full h-48 object-cover mb-4 rounded" 
               />
@@ -129,7 +129,7 @@ useEffect(() => {
             </div>
             <div className="bg-white rounded shadow p-6 mb-6 md:mb-0 flex-1">
               <img 
-                src="https://source.unsplash.com/400x300/?fishing-rod" 
+                src="/gear.png" 
                 alt="Quality Equipment" 
                 className="w-full h-48 object-cover mb-4 rounded" 
               />
@@ -141,7 +141,7 @@ useEffect(() => {
             </div>
             <div className="bg-white rounded shadow p-6 flex-1">
               <img 
-                src="https://source.unsplash.com/400x300/?fishing-guide" 
+                src="/captains.png" 
                 alt="Licensed Captains" 
                 className="w-full h-48 object-cover mb-4 rounded" 
               />
