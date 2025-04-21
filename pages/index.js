@@ -1,9 +1,7 @@
 import Head from 'next/head';
-import { Inter, Roboto, Montserrat } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'], weight: '500' });
-const roboto = Roboto({ subsets: ['latin'], weight: '500' });
-const montserrat = Montserrat({ subsets: ['latin'], weight: '500' });
+const poppins = Poppins({ subsets: ['latin'], weight: '500' });
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 const heroImages = ['/hero-image.png', '/hero-image.png', '/hero-image.png'];
@@ -12,8 +10,10 @@ import { Transition } from '@headlessui/react';
 export default function Home() {
   const [showLogo, setShowLogo] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
-useEffect(() => {
+  useEffect(() => {
   const handleScroll = () => {
     const heroHeight = window.innerHeight;
     setShowLogo(window.scrollY > heroHeight - 650);
@@ -29,8 +29,24 @@ useEffect(() => {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
+  const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const handleTouchEnd = () => {
+    if (touchStart === null || touchEnd === null) return;
+    const distance = touchStart - touchEnd;
+    const swipeThreshold = 50;
+    if (distance > swipeThreshold) {
+      setCurrentImageIndex((prevIndex) => prevIndex + 1);
+    } else if (distance < -swipeThreshold) {
+      setCurrentImageIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    }
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
   return (
-    <div className={`text-gray-700 ${montserrat.className} font-semibold`}>
+    <div className={`text-gray-700 ${poppins.className} font-semibold`}>
       <Head>
         <title>Two Fins Charters</title>
         <meta 
@@ -55,24 +71,24 @@ useEffect(() => {
               <img src="/logo.png" alt="Two Fins Logo" className="h-10 w-auto" />
             </Transition>
           </div>
-          <ul className={`flex space-x-4 ${montserrat.className}`}>
+          <ul className={`flex space-x-4 ${poppins.className}`}>
             <li>
-              <Link href="#home" scroll={false} className="hover:text-gray-300">
+              <Link href="#home" scroll={false} className="hover:text-gray-300 active:text-red-700">
                 HOME
               </Link>
             </li>
             <li>
-              <Link href="#about" scroll={false} className="hover:text-gray-300">
+              <Link href="#about" scroll={false} className="hover:text-gray-300 active:text-red-700">
                 ABOUT
               </Link>
             </li>
             <li>
-              <Link href="#trips" scroll={false} className="hover:text-gray-300">
+              <Link href="#trips" scroll={false} className="hover:text-gray-300 active:text-red-700">
                 TRIPS
               </Link>
             </li>
             <li>
-              <Link href="#contact" scroll={false} className="hover:text-gray-300">
+              <Link href="#contact" scroll={false} className="hover:text-gray-300 active:text-red-700">
                 CONTACT
               </Link>
             </li>
@@ -82,48 +98,51 @@ useEffect(() => {
 
       {/* Hero Section */}
       <section id="home" className="relative scroll-mt-16">
-        <div className="overflow-hidden relative h-[50vh]">
+        <div className="overflow-hidden relative h-[65vh]"
+             onTouchStart={handleTouchStart}
+             onTouchMove={handleTouchMove}
+             onTouchEnd={handleTouchEnd}>
           <div className="whitespace-nowrap transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${(currentImageIndex % heroImages.length) * 100}%)` }}>
             {heroImages.map((image, index) => (
               <div
                 key={index}
-                className="inline-block h-[50vh] w-full bg-cover bg-center"
+                className="inline-block h-[65vh] w-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${image})` }}
               ></div>
             ))}
           </div>
           <div className="absolute top-12 left-0 p-4">
-            <img src="/logoBig.png" alt="Two Fins Charters Large Logo" className="h-64 mb-6" />
+            <img src="/logoBig.png" alt="Two Fins Charters Large Logo" className="h-32 mb-6" />
           </div>
         </div>
       </section>
       
-      <section className="py-8 bg-stone-100 text-center">
+      <section className="py-8 bg-stone-100 text-center px-6 md:px-12 lg:px-16">
         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          Experience the Best Fishing Adventures
+          TWO FINS FISHING & DIVING CHARTERS
         </h1>
-        <p className="text-gray-700 leading-relaxed max-w-prose mx-auto mb-7">
-          We are a premier fishing charter offering inshore and offshore adventures in Florida. Our experienced crew and comfortable vessels ensure that you'll have a safe and memorable fishing experience. Whether you're a seasoned angler or a first-timer, we provide all the gear and guidance you need for a great day on the water.
+        <p className="text-gray-700 leading-relaxed max-w-prose mx-auto mb-10">
+          We offer premier fishing and diving trips in the Upper Keys, providing all gear, USCG licensed captains, and professional guides for a memorable experience.
         </p>
         <Link 
           href="#contact" 
           scroll={false} 
           className="bg-red-700 text-white px-6 py-3 font-semibold rounded hover:bg-red-900"
         >
-          Book a Trip
+          BOOK NOW
         </Link>
       </section>
 
 
       {/* Trips Section */}
       <section id="trips" className="py-16 bg-gray-100 scroll-mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex flex-col md:flex-row md:space-x-1">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center">
+          <div className="flex flex-col md:flex-row md:space-x-3">
           <div className="mb-6 md:mb-0 flex-1">
               <img 
                 src="/inshoreoffshore.png" 
                 alt="Inshore and Offshore" 
-                className="w-3/4 h-36 object-cover mb-4 rounded-lg mx-auto"
+                className="w-full h-48 object-cover mb-4 rounded-lg mx-auto"
               />
               <h3 className="text-xl font-semibold mb-2">INSHORE & OFFSHORE</h3>
             </div>
@@ -131,7 +150,7 @@ useEffect(() => {
               <img 
                 src="/gear.png" 
                 alt="Quality Equipment" 
-                className="w-3/4 h-36 object-cover mb-4 rounded-lg mx-auto"
+                className="w-full h-48 object-cover mb-4 rounded-lg mx-auto"
               />
               <h3 className="text-xl font-semibold mb-2">QUALITY EQUIPMENT</h3>
             </div>
@@ -139,7 +158,7 @@ useEffect(() => {
               <img 
                 src="/captains.png" 
                 alt="Licensed Captains" 
-                className="w-3/4 h-36 object-cover mb-4 rounded-lg mx-auto"
+                className="w-full h-48 object-cover mb-4 rounded-lg mx-auto"
               />
               <h3 className="text-xl font-semibold mb-2">LICENSED CAPTAINS</h3>
             </div>
@@ -149,24 +168,24 @@ useEffect(() => {
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-16 bg-stone-100 scroll-mt-16">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center">
           <h2 className="text-3xl font-bold mb-8">Testimonials</h2>
           <div className="md:flex md:space-x-6">
-            <div className="bg-gray-100 rounded p-6 mb-6 md:mb-0 flex-1">
+            <div className="bg-white rounded-lg shadow p-6 mb-6 md:mb-0 flex-1">
               <p className="text-gray-800 italic">
                 "Had an amazing time! Caught the biggest fish of my life. The crew was fantastic and very 
                 helpful. Highly recommend for anyone looking to have a great fishing experience."
               </p>
               <p className="mt-4 font-semibold text-gray-900">- Alex G.</p>
             </div>
-            <div className="bg-gray-100 rounded p-6 mb-6 md:mb-0 flex-1">
+            <div className="bg-white rounded-lg shadow p-6 mb-6 md:mb-0 flex-1">
               <p className="text-gray-800 italic">
                 "Our family trip was wonderful. The kids loved it and the captain was very knowledgeable 
                 and friendly. We will definitely be back next year!"
               </p>
               <p className="mt-4 font-semibold text-gray-900">- Maria R.</p>
             </div>
-            <div className="bg-gray-100 rounded p-6 flex-1">
+            <div className="bg-white rounded-lg shadow p-6 flex-1">
               <p className="text-gray-800 italic">
                 "Professional crew and excellent service. Everything from booking to the day on the water 
                 was top-notch. We had a blast and caught plenty of fish."
