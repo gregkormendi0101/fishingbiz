@@ -6,10 +6,12 @@ const roboto = Roboto({ subsets: ['latin'], weight: '500' });
 const montserrat = Montserrat({ subsets: ['latin'], weight: '500' });
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+const heroImages = ['/hero-image.png', '/hero-image.png', '/hero-image.png'];
 import { Transition } from '@headlessui/react';
 
 export default function Home() {
   const [showLogo, setShowLogo] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
 useEffect(() => {
   const handleScroll = () => {
@@ -20,8 +22,15 @@ useEffect(() => {
   window.addEventListener('scroll', handleScroll);
   return () => window.removeEventListener('scroll', handleScroll);
 }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => prevIndex + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
   return (
-    <div>
+    <div className={`text-gray-700 ${montserrat.className} font-semibold`}>
       <Head>
         <title>Two Fins Charters</title>
         <meta 
@@ -31,7 +40,7 @@ useEffect(() => {
       </Head>
 
       {/* Navigation Bar */}
-      <header className="fixed top-0 left-0 w-full bg-white bg-opacity-70 backdrop-blur-md text-black shadow-md z-10 h-16">
+      <header className="fixed top-0 left-0 w-full bg-white bg-opacity-70 backdrop-blur-md text-black shadow-md z-10 h-12">
           <nav className="container mx-auto flex justify-between items-center h-full px-4">
           <div className="flex items-center space-x-2">
             <Transition
@@ -49,22 +58,22 @@ useEffect(() => {
           <ul className={`flex space-x-4 ${montserrat.className}`}>
             <li>
               <Link href="#home" scroll={false} className="hover:text-gray-300">
-                Home
+                HOME
               </Link>
             </li>
             <li>
               <Link href="#about" scroll={false} className="hover:text-gray-300">
-                About
+                ABOUT
               </Link>
             </li>
             <li>
               <Link href="#trips" scroll={false} className="hover:text-gray-300">
-                Trips
+                TRIPS
               </Link>
             </li>
             <li>
               <Link href="#contact" scroll={false} className="hover:text-gray-300">
-                Contact
+                CONTACT
               </Link>
             </li>
           </ul>
@@ -72,91 +81,74 @@ useEffect(() => {
       </header>
 
       {/* Hero Section */}
-      <section 
-        id="home" 
-        className="h-screen flex items-center justify-center bg-cover bg-center relative scroll-mt-16" 
-        style={{ backgroundImage: 'url(/hero-image.png)' }}
-      >
-        {/* Dark overlay */}
-        <div className="bg-black bg-opacity-50 absolute top-0 left-0 w-full h-full"></div>
-          <div className="relative z-0 text-center text-white py-2 px-4 flex flex-col items-center">
+      <section id="home" className="relative scroll-mt-16">
+        <div className="overflow-hidden relative h-[50vh]">
+          <div className="whitespace-nowrap transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${(currentImageIndex % heroImages.length) * 100}%)` }}>
+            {heroImages.map((image, index) => (
+              <div
+                key={index}
+                className="inline-block h-[50vh] w-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${image})` }}
+              ></div>
+            ))}
+          </div>
+          <div className="absolute top-12 left-0 p-4">
             <img src="/logoBig.png" alt="Two Fins Charters Large Logo" className="h-64 mb-6" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Experience the Best Fishing Adventures
-          </h1>
-          <p className="text-xl mb-6">
-            Join us for an unforgettable day on the water.
-          </p>
-          <Link 
-            href="#contact" 
-            scroll={false} 
-            className="bg-yellow-500 text-black px-6 py-3 font-semibold rounded hover:bg-yellow-600"
-          >
-            Book a Trip
-          </Link>
+          </div>
         </div>
+      </section>
+      
+      <section className="py-8 bg-stone-100 text-center">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">
+          Experience the Best Fishing Adventures
+        </h1>
+        <p className="text-gray-700 leading-relaxed max-w-prose mx-auto mb-7">
+          We are a premier fishing charter offering inshore and offshore adventures in Florida. Our experienced crew and comfortable vessels ensure that you'll have a safe and memorable fishing experience. Whether you're a seasoned angler or a first-timer, we provide all the gear and guidance you need for a great day on the water.
+        </p>
+        <Link 
+          href="#contact" 
+          scroll={false} 
+          className="bg-red-700 text-white px-6 py-3 font-semibold rounded hover:bg-red-900"
+        >
+          Book a Trip
+        </Link>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-16 bg-white scroll-mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">About Us</h2>
-          <p className="text-gray-700 leading-relaxed max-w-prose mx-auto">
-            We are a premier fishing charter offering inshore and offshore adventures in Florida. 
-            Our experienced crew and comfortable vessels ensure that you'll have a safe and memorable 
-            fishing experience. Whether you're a seasoned angler or a first-timer, we provide all the 
-            gear and guidance you need for a great day on the water.
-          </p>
-        </div>
-      </section>
 
       {/* Trips Section */}
       <section id="trips" className="py-16 bg-gray-100 scroll-mt-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Our Trips</h2>
-          <div className="flex flex-col md:flex-row md:space-x-6">
-            <div className="bg-white rounded shadow p-6 mb-6 md:mb-0 flex-1">
+          <div className="flex flex-col md:flex-row md:space-x-1">
+          <div className="mb-6 md:mb-0 flex-1">
               <img 
                 src="/inshoreoffshore.png" 
                 alt="Inshore and Offshore" 
-                className="w-full h-48 object-cover mb-4 rounded" 
+                className="w-3/4 h-36 object-cover mb-4 rounded-lg mx-auto"
               />
-              <h3 className="text-xl font-semibold mb-2">Inshore & Offshore</h3>
-              <p className="text-gray-600">
-                From calm inshore waters to deep-sea fishing, we offer a range of trips 
-                to suit all preferences and skill levels.
-              </p>
+              <h3 className="text-xl font-semibold mb-2">INSHORE & OFFSHORE</h3>
             </div>
-            <div className="bg-white rounded shadow p-6 mb-6 md:mb-0 flex-1">
+          <div className="mb-6 md:mb-0 flex-1">
               <img 
                 src="/gear.png" 
                 alt="Quality Equipment" 
-                className="w-full h-48 object-cover mb-4 rounded" 
+                className="w-3/4 h-36 object-cover mb-4 rounded-lg mx-auto"
               />
-              <h3 className="text-xl font-semibold mb-2">Quality Equipment</h3>
-              <p className="text-gray-600">
-                We provide top-of-the-line rods, reels, and tackle. Our boats are well-maintained 
-                and fully equipped for your comfort and safety.
-              </p>
+              <h3 className="text-xl font-semibold mb-2">QUALITY EQUIPMENT</h3>
             </div>
-            <div className="bg-white rounded shadow p-6 flex-1">
+          <div className="flex-1">
               <img 
                 src="/captains.png" 
                 alt="Licensed Captains" 
-                className="w-full h-48 object-cover mb-4 rounded" 
+                className="w-3/4 h-36 object-cover mb-4 rounded-lg mx-auto"
               />
-              <h3 className="text-xl font-semibold mb-2">Licensed Captains</h3>
-              <p className="text-gray-600">
-                Our experienced captains are fully licensed and know the best fishing spots. They are 
-                committed to providing a fun and safe trip for everyone.
-              </p>
+              <h3 className="text-xl font-semibold mb-2">LICENSED CAPTAINS</h3>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-16 bg-white scroll-mt-16">
+      <section id="testimonials" className="py-16 bg-stone-100 scroll-mt-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Testimonials</h2>
           <div className="md:flex md:space-x-6">
@@ -225,7 +217,7 @@ useEffect(() => {
       </section>
 
       {/* Footer with Google Map Embed */}
-      <footer className="bg-white">
+      <footer className="bg-stone-100">
         <div className="container mx-auto px-4 py-8">
           <h3 className="text-xl font-bold text-center mb-4">Find Us</h3>
           <div className="w-full h-64">
