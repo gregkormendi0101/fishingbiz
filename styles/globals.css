@@ -1,7 +1,15 @@
+/*
+  The following directives require Tailwind CSS and a PostCSS-compatible build process.
+  Make sure Tailwind CSS is installed and configured in your project.
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Enable smooth scrolling for in-page navigation */
+html {
+  scroll-behavior: smooth;
+}
 /* Enable smooth scrolling for in-page navigation */
 html {
   scroll-behavior: smooth;
