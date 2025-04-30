@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import { Poppins } from 'next/font/google';
+import { DM_Serif_Text } from 'next/font/google';
+const dmSerif = DM_Serif_Text({ subsets: ['latin'], weight: '400' });
 
 const poppins = Poppins({ subsets: ['latin'], weight: '500' });
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-const heroImages = ['/hero-image.png', '/hero-image.png', '/hero-image.png'];
+const heroImages = ['/hero-image.png', '/hero-image2.png', '/hero-image3.png', '/hero-image4.png', '/hero-image5.png'];
 import { Transition } from '@headlessui/react';
 
 export default function Home() {
@@ -68,27 +70,27 @@ export default function Home() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <img src="/logo.png" alt="Two Fins Logo" className="h-10 w-auto" />
+              <img src="/logoFull.png" alt="Two Fins Logo" className="h-10 w-auto" />
             </Transition>
           </div>
           <ul className={`flex space-x-4 ${poppins.className}`}>
             <li>
-              <Link href="#home" scroll={false} className="hover:text-gray-300 active:text-red-700">
+              <Link href="#home" scroll={false} className="hover:text-gray-500 active:text-red-700">
                 HOME
               </Link>
             </li>
             <li>
-              <Link href="#about" scroll={false} className="hover:text-gray-300 active:text-red-700">
+              <Link href="#about" scroll={false} className="hover:text-gray-500 active:text-red-700">
                 ABOUT
               </Link>
             </li>
             <li>
-              <Link href="#trips" scroll={false} className="hover:text-gray-300 active:text-red-700">
+              <Link href="#trips" scroll={false} className="hover:text-gray-500 active:text-red-700">
                 TRIPS
               </Link>
             </li>
             <li>
-              <Link href="#contact" scroll={false} className="hover:text-gray-300 active:text-red-700">
+              <Link href="#contact" scroll={false} className="hover:text-gray-500 active:text-red-700">
                 CONTACT
               </Link>
             </li>
@@ -112,17 +114,29 @@ export default function Home() {
             ))}
           </div>
           <div className="absolute top-12 left-0 p-4">
-            <img src="/logoBig.png" alt="Two Fins Charters Large Logo" className="h-32 mb-6" />
+            <img src="/logoFull.png" alt="Two Fins Charters Large Logo" className="h-36 mb-6" />
+          </div>
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+            <button onClick={() => setCurrentImageIndex((prevIndex) => Math.max(prevIndex - 1, 0))} className="text-2xl text-gray-600 hover:text-red-700">‹</button>
+            <div className="flex space-x-2">
+              {heroImages.map((_, index) => (
+                <span
+                  key={index}
+                  className={`h-2 w-2 rounded-full ${currentImageIndex % heroImages.length === index ? 'bg-red-700' : 'bg-gray-300'}`}
+                ></span>
+              ))}
+            </div>
+            <button onClick={() => setCurrentImageIndex((prevIndex) => prevIndex + 1)} className="text-2xl text-gray-600 hover:text-red-700">›</button>
           </div>
         </div>
       </section>
       
       <section className="py-8 bg-stone-100 text-center px-6 md:px-12 lg:px-16">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          TWO FINS FISHING & DIVING CHARTERS
+        <h1 className={`text-3xl md:text-4xl font-bold mb-4 ${dmSerif.className}`}>
+          OFFSHORE, INSHORE FISHING & SPEARFISHING
         </h1>
         <p className="text-gray-700 leading-relaxed max-w-prose mx-auto mb-10">
-          We offer premier fishing and diving trips in the Upper Keys, providing all gear, USCG licensed captains, and professional guides for a memorable experience.
+          Hunt fish. Dive deep. We operate in the Upper Keys with badass gear, expert guides, and real-deal captains. You show up—we handle the rest.
         </p>
         <Link 
           href="#contact" 
@@ -140,27 +154,27 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:space-x-3">
           <div className="mb-6 md:mb-0 flex-1">
               <img 
-                src="/inshoreoffshore.png" 
+                src="/offshore.png" 
                 alt="Inshore and Offshore" 
                 className="w-full h-48 object-cover mb-4 rounded-lg mx-auto"
               />
-              <h3 className="text-xl font-semibold mb-2">INSHORE & OFFSHORE</h3>
+              <h3 className="text-xl font-semibold mb-2">OFFSHORE FISHING</h3>
             </div>
           <div className="mb-6 md:mb-0 flex-1">
               <img 
-                src="/gear.png" 
+                src="/spearfishing.png" 
                 alt="Quality Equipment" 
                 className="w-full h-48 object-cover mb-4 rounded-lg mx-auto"
               />
-              <h3 className="text-xl font-semibold mb-2">QUALITY EQUIPMENT</h3>
+              <h3 className="text-xl font-semibold mb-2">SPEARFISHING</h3>
             </div>
           <div className="flex-1">
               <img 
-                src="/captains.png" 
+                src="/inshore.png" 
                 alt="Licensed Captains" 
                 className="w-full h-48 object-cover mb-4 rounded-lg mx-auto"
               />
-              <h3 className="text-xl font-semibold mb-2">LICENSED CAPTAINS</h3>
+              <h3 className="text-xl font-semibold mb-2">INSHORE FISHING</h3>
             </div>
           </div>
         </div>
