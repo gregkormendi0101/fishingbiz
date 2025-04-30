@@ -201,7 +201,9 @@ export default function Home() {
               />
               <h3 className="text-2xl font-bold text-blue-800 mb-2 tracking-wide">OFFSHORE FISHING</h3>
               <p className="text-blue-700 mb-4">Big game, deep water, adrenaline. Chase pelagics and trophy fish offshore with our expert crew.</p>
-              <span className="inline-block bg-gradient-to-r from-blue-700 to-cyan-400 text-white px-4 py-2 rounded-full font-semibold text-sm shadow hover:from-cyan-400 hover:to-blue-700 transition-all">Learn More</span>
+              <span className="inline-block bg-gradient-to-r from-blue-700 to-cyan-400 text-white px-4 py-2 rounded-full font-semibold text-sm shadow hover:from-cyan-400 hover:to-blue-700 transition-all">
+                <Link href="/offshore">Learn More</Link>
+              </span>
             </div>
             <div className="group relative bg-white/90 rounded-3xl shadow-2xl p-6 flex-1 hover:scale-105 hover:shadow-cyan-400/40 transition-all duration-300 border-2 border-cyan-100">
               <img 
@@ -211,7 +213,9 @@ export default function Home() {
               />
               <h3 className="text-2xl font-bold text-cyan-800 mb-2 tracking-wide">SPEARFISHING</h3>
               <p className="text-cyan-700 mb-4">Crystal clear water, reefs, and wrecks. Freedive or scuba for the ultimate underwater hunt.</p>
-              <span className="inline-block bg-gradient-to-r from-cyan-700 to-blue-400 text-white px-4 py-2 rounded-full font-semibold text-sm shadow hover:from-blue-400 hover:to-cyan-700 transition-all">Learn More</span>
+              <span className="inline-block bg-gradient-to-r from-cyan-700 to-blue-400 text-white px-4 py-2 rounded-full font-semibold text-sm shadow hover:from-blue-400 hover:to-cyan-700 transition-all">
+                <Link href="/spearfishing">Learn More</Link>
+              </span>
             </div>
             <div className="group relative bg-white/90 rounded-3xl shadow-2xl p-6 flex-1 hover:scale-105 hover:shadow-pink-400/40 transition-all duration-300 border-2 border-pink-100">
               <img 
@@ -221,7 +225,9 @@ export default function Home() {
               />
               <h3 className="text-2xl font-bold text-pink-800 mb-2 tracking-wide">INSHORE FISHING</h3>
               <p className="text-pink-700 mb-4">Shallow water, mangroves, and flats. Target snook, tarpon, and more in the scenic backcountry.</p>
-              <span className="inline-block bg-gradient-to-r from-pink-700 to-yellow-400 text-white px-4 py-2 rounded-full font-semibold text-sm shadow hover:from-yellow-400 hover:to-pink-700 transition-all">Learn More</span>
+              <span className="inline-block bg-gradient-to-r from-pink-700 to-yellow-400 text-white px-4 py-2 rounded-full font-semibold text-sm shadow hover:from-yellow-400 hover:to-pink-700 transition-all">
+                <Link href="/inshore">Learn More</Link>
+              </span>
             </div>
           </div>
         </div>
