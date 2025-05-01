@@ -80,6 +80,7 @@ export default function Home() {
           name="description" 
           content="Fishing charter business offering inshore and offshore trips." 
         />
+        <link rel="icon" href="/logo.png" />
       </Head>
 
       {/* Navigation Bar */}
