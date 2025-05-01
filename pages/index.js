@@ -238,22 +238,13 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-blue-900">Follow Us On Instagram</h2>
           <p className="mb-8 text-gray-600">@twofinspro</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <a href="https://www.instagram.com/p/C6Qn1Q2u3kF/" target="_blank" rel="noopener noreferrer">
-              <img src="https://instagram.fmia1-2.fna.fbcdn.net/v/t51.2885-15/123456789_1.jpg" alt="Instagram 1" className="w-full h-48 object-cover rounded-xl shadow hover:scale-105 transition" />
-            </a>
-            <a href="https://www.instagram.com/p/C6Qn1Q2u3kF/" target="_blank" rel="noopener noreferrer">
-              <img src="https://instagram.fmia1-2.fna.fbcdn.net/v/t51.2885-15/123456789_2.jpg" alt="Instagram 2" className="w-full h-48 object-cover rounded-xl shadow hover:scale-105 transition" />
-            </a>
-            <a href="https://www.instagram.com/p/C6Qn1Q2u3kF/" target="_blank" rel="noopener noreferrer">
-              <img src="https://instagram.fmia1-2.fna.fbcdn.net/v/t51.2885-15/123456789_3.jpg" alt="Instagram 3" className="w-full h-48 object-cover rounded-xl shadow hover:scale-105 transition" />
-            </a>
-            <a href="https://www.instagram.com/p/C6Qn1Q2u3kF/" target="_blank" rel="noopener noreferrer">
-              <img src="https://instagram.fmia1-2.fna.fbcdn.net/v/t51.2885-15/123456789_4.jpg" alt="Instagram 4" className="w-full h-48 object-cover rounded-xl shadow hover:scale-105 transition" />
-            </a>
+          {/* LightWidget Instagram Embed */}
+          <div className="max-w-4xl mx-auto">
+            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+            <iframe src="//lightwidget.com/widgets/0b289165e002597ea89bc6693abf39e0.html" scrolling="no" allowtransparency="true" className="lightwidget-widget" style={{width:'100%', border:0, overflow:'hidden'}}></iframe>
           </div>
           <div className="mt-8">
-            <a href="https://www.instagram.com/twofinspro" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-blue-700 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold shadow hover:scale-105 transition">See More On Instagram</a>
+            <a href="https://www.instagram.com/twofinspro/?igsh=eHI4cDd6ZmV2aWEy" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-blue-700 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold shadow hover:scale-105 transition">See More On Instagram</a>
           </div>
         </div>
       </section>
