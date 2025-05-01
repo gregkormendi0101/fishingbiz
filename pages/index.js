@@ -233,6 +233,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Instagram Gallery Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-blue-900">Follow Us On Instagram</h2>
+          <p className="mb-8 text-gray-600">@twofinspro</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <a href="https://www.instagram.com/p/C6Qn1Q2u3kF/" target="_blank" rel="noopener noreferrer">
+              <img src="https://instagram.fmia1-2.fna.fbcdn.net/v/t51.2885-15/123456789_1.jpg" alt="Instagram 1" className="w-full h-48 object-cover rounded-xl shadow hover:scale-105 transition" />
+            </a>
+            <a href="https://www.instagram.com/p/C6Qn1Q2u3kF/" target="_blank" rel="noopener noreferrer">
+              <img src="https://instagram.fmia1-2.fna.fbcdn.net/v/t51.2885-15/123456789_2.jpg" alt="Instagram 2" className="w-full h-48 object-cover rounded-xl shadow hover:scale-105 transition" />
+            </a>
+            <a href="https://www.instagram.com/p/C6Qn1Q2u3kF/" target="_blank" rel="noopener noreferrer">
+              <img src="https://instagram.fmia1-2.fna.fbcdn.net/v/t51.2885-15/123456789_3.jpg" alt="Instagram 3" className="w-full h-48 object-cover rounded-xl shadow hover:scale-105 transition" />
+            </a>
+            <a href="https://www.instagram.com/p/C6Qn1Q2u3kF/" target="_blank" rel="noopener noreferrer">
+              <img src="https://instagram.fmia1-2.fna.fbcdn.net/v/t51.2885-15/123456789_4.jpg" alt="Instagram 4" className="w-full h-48 object-cover rounded-xl shadow hover:scale-105 transition" />
+            </a>
+          </div>
+          <div className="mt-8">
+            <a href="https://www.instagram.com/twofinspro" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-blue-700 to-cyan-400 text-white px-6 py-2 rounded-full font-semibold shadow hover:scale-105 transition">See More On Instagram</a>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section id="testimonials" className="py-12 bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-500 scroll-mt-16 mt-0">
         <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center">
