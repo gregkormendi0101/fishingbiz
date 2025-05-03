@@ -15,7 +15,14 @@ export default function Spearfishing() {
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Spearfishing</h1>
         <p className="max-w-xl mx-auto text-lg md:text-2xl mb-8 text-cyan-100 drop-shadow">Dive into the clear waters of the Upper Keys and hunt for snapper, grouper, hogfish, and more. Freedive or scuba—our expert guides and top gear make it safe, fun, and unforgettable.</p>
-        <Link href="/#contact" className="inline-block bg-gradient-to-r from-pink-700 to-yellow-400 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-all">Book Your Spearfishing Trip</Link>
+        <a 
+          href="https://www.fishingbooker.com/charters/view/123456" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="inline-block bg-gradient-to-r from-pink-700 to-yellow-400 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-all"
+        >
+          Book Your Spearfishing Trip
+        </a>
       </section>
       <section className="max-w-3xl mx-auto px-4 py-8 text-white/90">
         <h2 className="text-2xl font-bold mb-4">Why Spearfish With Us?</h2>

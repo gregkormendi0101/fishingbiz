@@ -15,7 +15,14 @@ export default function Offshore() {
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Offshore Fishing</h1>
         <p className="max-w-xl mx-auto text-lg md:text-2xl mb-8 text-cyan-100 drop-shadow">Chase pelagics, reel in monsters, and experience the thrill of deep water fishing in the beautiful blue waters of the Upper Keys. Our expert crew and top-tier gear make every trip unforgettable.</p>
-        <Link href="/#contact" className="inline-block bg-gradient-to-r from-blue-700 to-cyan-400 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-all">Book Your Offshore Adventure</Link>
+        <a 
+          href="https://www.fishingbooker.com/charters/view/123456" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="inline-block bg-gradient-to-r from-blue-700 to-cyan-400 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-all"
+        >
+          Book Your Offshore Adventure
+        </a>
       </section>
       <section className="max-w-3xl mx-auto px-4 py-8 text-white/90">
         <h2 className="text-2xl font-bold mb-4">What to Expect</h2>
