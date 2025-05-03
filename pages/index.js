@@ -272,7 +272,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <img 
-                src="/hero-image1.png" 
+                src="/about-us.png" 
                 alt="Two Fins Charters Team" 
                 className="rounded-2xl shadow-xl w-full max-w-lg mx-auto"
               />
