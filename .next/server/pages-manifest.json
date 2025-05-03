@@ -2,7 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
   "/spearfishing": "pages/spearfishing.js",
-  "/inshore": "pages/inshore.js"
+  "/": "pages/index.js",
+  "/inshore": "pages/inshore.js",
+  "/api/contact": "pages/api/contact.js"
 }
